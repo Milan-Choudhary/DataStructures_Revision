@@ -14,9 +14,6 @@ public class Bubble_Sort {
             arr[i] = input.nextInt();
         }
 
-        // 3 4 1 5 2
-        // 5 4 3 2 1 
-
         boolean to_move = true;
         for(int i = 0; i<n; i++){
             to_move = false;

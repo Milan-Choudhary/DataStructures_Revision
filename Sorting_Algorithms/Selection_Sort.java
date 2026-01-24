@@ -15,8 +15,6 @@ public class Selection_Sort {
             arr[i] = input.nextInt();
         }
 
-        //3 4 1 5 2
-
         int val = arr[0];
         int index = -1;
         for(int i = 0; i<n-1; i++){
