@@ -98,7 +98,7 @@ class LinkedList{
         public void insertAtPosition(int pos,int val){
             Node temp = head;
             Node curr = new Node(val);
-            int p = 1;
+            int p = 2;
 
             while(temp != null && p != pos){
                 temp = temp.next;
