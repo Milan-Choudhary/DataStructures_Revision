@@ -3,96 +3,134 @@
 package OOPs;
 
 public class LinkedList {
-    private Node head;
 
-    private class Node {
+    static class Node{
+        int data;
         Node next;
-        int val;
 
-        Node(int val) {
-            this.val = val;
+        Node(int data){
+            this.data = data;
             this.next = null;
         }
     }
 
-    public void insertAtEnd(int data) {
+    static class LinkedListImpl{
+        Node head;
+
+        public void insertAtBeginning(int data){
         Node temp = new Node(data);
 
-        if (head == null) {
-            head = temp;
-            return;
-        }
-
-        Node current = head;
-        while (current.next != null) {
-            current = current.next;
-        }
-
-        current.next = temp;
-    }
-
-    public void printList() {
-        Node current = head;
-        while (current != null) {
-            System.out.println(current.val);
-            current = current.next;
-        }
-    }
-
-    public void insertAtBeginning(int data) {
-        Node temp = new Node(data);
         temp.next = head;
         head = temp;
+        }
+
+        public void Print(){
+            Node temp = head;
+
+            while(temp != null){
+                System.out.print(temp.data + "->" + " ");
+                temp = temp.next;
+            }
+            
+            System.out.println();
+
+        }
+
+        public void insertAtLast(int data){
+
+            Node temp = new Node(data);
+
+            Node curr = head;
+            if(head == null){
+                head = temp;
+                return;
+            }   
+
+            while(curr.next != null){
+                curr = curr.next;
+            }
+
+            curr.next = temp;           
+
+        }
+
+        public int Middle(){
+            Node slow = head;
+            Node fast = head;
+            
+            while(fast != null  && fast.next != null){
+
+                fast = fast.next.next;
+                slow = slow.next; 
+            }
+
+            return slow.data;
+
+        }
+
+        public boolean isCyclic(){
+
+            Node slow = head;
+            Node fast = head;
+
+            while(fast != null && fast.next != null){
+                fast = fast.next.next;
+                slow = slow.next;
+
+                if(slow == fast){
+                    return true;
+                }
+            }
+
+            return false;
+
+        }
+
+        public Node reverseList(Node head2){
+            Node curr = head2;
+            Node prev = null;
+
+
+            while(curr != null){
+                Node nxt = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = nxt;
+
+            }
+
+            // head2 = prev;
+            // return head2;
+            return prev;
+
+
+        }
+
+
     }
-
-    public void deleteNode(int data) {
-        if (head == null) {
-            return;
-        }
-
-        if (head.val == data) {
-            head = head.next;
-            return;
-        }
-
-        Node current = head;
-        while (current.next != null && current.next.val != data) {
-            current = current.next;
-        }
-
-        if (current.next != null) {
-            current.next = current.next.next;
-        }
-    }
+    
 
 
-    public void Reverse() {
-        Node prev = null;
-        Node current = head;
-        Node next = null;
+        public static void main(String[] args) {
+            LinkedListImpl list = new LinkedListImpl();
 
-        while (current != null) {
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
-        }
+            for(int i = 1; i<=12; i++){
+                list.insertAtLast(i);
+            }
 
-        head = prev;
-    }
+            list.Print();
 
+            System.out.println(list.Middle());
 
+            System.out.println(list.isCyclic());
 
+            Node root = list.reverseList(list.head); 
 
-    public static void main(String[] args) {
-        LinkedList list = new LinkedList();
+            while(root != null){
+                System.out.print(root.data + " ");
+                root = root.next;
+            }
 
-        list.insertAtEnd(10);
-        list.printList();
-        list.insertAtBeginning(5);
-        list.printList();
-        list.deleteNode(10);
-        list.printList();
 
     }
 }
