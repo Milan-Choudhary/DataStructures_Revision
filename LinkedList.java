@@ -1,9 +1,21 @@
 // Revising the concept in the mid of November
+ //Linked List is a linear data structure where each element is a separate object, called a node. Each node contains two parts: data and a reference to the next node in the list.
+
+            //Advantages of Linked Lists:
+            //1. Dynamic Size: Linked lists can grow or shrink in size during runtime, which allows for efficient memory usage.
+            //2. Ease of Insertion/Deletion: Inserting or deleting nodes in a linked list is easier compared to arrays, as it does not require shifting elements.
+            //3. No Wasted Space: Linked lists do not require contiguous memory allocation, which can lead to better utilization of memory.
+
+            //Disadvantages of Linked Lists:
+            //1. Memory Overhead: Each node in a linked list requires additional memory for storing the reference to the next node, which can lead to increased memory usage compared to arrays.
+            //2. Sequential Access: Linked lists do not allow random access to elements, meaning that you have to traverse the list from the beginning to access a specific element, which can be inefficient for large lists.
+            //3. Cache Performance: Due to non-contiguous memory allocation, linked lists may have poor cache performance compared to arrays, which can lead to slower access times.
+
 class LinkedList{
 
-    static class Node{
-        int data;
-        Node next;
+    static class Node{ // A nested class representing a node in the linked list
+        int data; // The data stored in the node
+        Node next; // A reference to the next node in the list
 
         Node(int data){
             this.data = data;
@@ -13,7 +25,7 @@ class LinkedList{
     }
 
     static class linkedlist{
-        Node head;
+        Node head; // The head of the linked list, which points to the first node in the list
 
         public void insertAtBeginning(int data){
             Node temp = new Node(data);
@@ -125,7 +137,7 @@ class LinkedList{
 
     public static void main(String[] args){
 
-        linkedlist list = new linkedlist();
+        linkedlist list = new linkedlist(); // Creating an instance of the linked list
 
         for(int i = 2; i<=24; i++){
             list.insertAtLast(i);

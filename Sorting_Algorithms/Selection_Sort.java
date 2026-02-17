@@ -20,7 +20,7 @@ public class Selection_Sort {
         for(int i = 0; i<n-1; i++){
             val = arr[i];
             index = -1;
-            for(int j = i; j<n; j++){
+            for(int j = i+1; j<n; j++){
                 if(arr[j] < val){
                     val = arr[j];
                     index = j;
