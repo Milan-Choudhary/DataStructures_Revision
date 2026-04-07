@@ -1,0 +1,76 @@
+Infosys HackwithInfy 2026 Problems
+
+Problem 1: Beautiful Function Reachability
+Problem Statement
+A function F(x) is called a Beautiful Function and is defined as follows:
+Add 1 to the number x.
+If the resulting number contains any trailing zeros, remove all of them.
+Examples
+F(11) = 12
+F(99) = 100 → 10 → 1
+F(29) = 30 → 3
+A number y is said to be reachable from x if we can apply the Beautiful Function to x some number of times (possibly zero) and obtain y.
+Example
+3 is reachable from 29953 because:
+29953 → 29954 → 29955 → 29956 → 29957 → 29958 → 29959 → 2996 → 3
+Task
+Given an integer N, determine how many distinct numbers are reachable from N.
+Input Format
+A single integer N
+Constraints
+1 ≤ N ≤ 10⁹
+Output Format
+Print a single integer representing the number of distinct reachable numbers.
+Sample Input & Output
+Input
+Output
+1
+9
+29953
+20
+101
+27
+
+
+Problem 2: Counting Valid Subsets
+Problem Statement
+You are given an array A of size N, an integer minLength, and an integer maxSum.
+Your task is to count the number of subsets of the array such that:
+The length of the subset is at least minLength
+The sum of elements in the subset is less than or equal to maxSum
+Input Format
+First line contains integers N, minLength, maxSum
+Second line contains N space-separated integers
+Constraints
+1 ≤ N ≤ 10⁵
+1 ≤ A[i] ≤ 10⁹
+Output Format
+Print the count of valid subsets.
+Problem 3: Range Queries with Updates
+Problem Statement
+You are given an array C of size N and Q queries. Each query is of one of the following types:
+Type 1 Query
+[1, i, delta, 0]
+
+Update the value at index i by adding delta to C[i].
+Type 2 Query
+[2, L, R, M]
+
+For indices from L to R, find all elements in array C that are greater than M, and return the sum of such elements.
+Task
+Process all queries and return the total sum of results obtained from all Type 2 queries.
+Constraints
+1 ≤ N, Q ≤ 2 × 10⁵
+1 ≤ L ≤ R ≤ N
+Problem 4: Longest Valid Subsequence of Mutants
+Problem Statement
+You are given a 2D list where each element contains three integers p, q, r.
+For each element, compute a mutant value using the following formula:
+value = (p × q) − r
+
+A pair of indices (i, j) is considered invalid if the computed value at index i combined with index j results in 0.
+Task
+Find the length of the longest subsequence such that no pair (i, j) within the subsequence results in a value of 0 when evaluated using the given formula.
+Constraints
+1 ≤ N ≤ 10⁵
+Values of p, q, r ≤ 10⁹

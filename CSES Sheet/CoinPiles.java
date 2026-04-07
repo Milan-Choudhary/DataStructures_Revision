@@ -1,51 +1,29 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 public class CoinPiles {
-    public static void main(String[] args) {
-        
-        Scanner input = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out = new PrintWriter(System.out);
+        StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
 
-        int t = input.nextInt();
+        int t = Integer.parseInt(tokenizer.nextToken());
+        StringBuilder sb = new StringBuilder();
 
-        while(t-- > 0){
-            int a = input.nextInt();
-            int b = input.nextInt();
+        while (t-- > 0) {
+            tokenizer = new StringTokenizer(reader.readLine());
+            int a = Integer.parseInt(tokenizer.nextToken());
+            int b = Integer.parseInt(tokenizer.nextToken());
 
-            boolean val = (a+b)%3 != 0 && Math.max(a,b) <= Math.min(a,b);
-
-            if(val == true){
-                System.out.println("YES");
-            }
-            else{
-                System.out.println("NO");
-            }
-
-            // boolean ans = compute(a,b);
-
-            // if(ans == true){
-            //     System.out.println("YES");
-            // }
-            // else{
-            //     System.out.println("NO");
-            // }
-            
+            long val = (long) a + b;
+            sb.append((val % 3 == 0) ? "YES" : "NO");
+            sb.append('\n');
         }
 
-        input.close();
-
+        out.print(sb);
+        out.flush();
     }
-
-    // public static boolean compute(int a,int b){
-
-    //     if(a < 0 || b < 0){
-    //         return false;
-    //     }
-
-    //     if(a == 0 && b == 0){
-    //         return true;
-    //     }
-
-    //     return compute(a-2,b-1) || compute(a-1,b-2);
-
-    // }
 }

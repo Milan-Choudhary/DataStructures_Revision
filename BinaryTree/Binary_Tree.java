@@ -28,7 +28,6 @@ public class Binary_Tree {
 
             if(root.left == null){
                 root.left = temp;
-                root
             }
             else{
                 root.right = temp;
