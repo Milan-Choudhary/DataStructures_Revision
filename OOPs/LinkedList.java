@@ -99,17 +99,12 @@ public class LinkedList {
 
             }
 
-            // head2 = prev;
-            // return head2;
             return prev;
 
 
         }
 
-
-    }
-    
-
+    }  
 
         public static void main(String[] args) {
             LinkedListImpl list = new LinkedListImpl();

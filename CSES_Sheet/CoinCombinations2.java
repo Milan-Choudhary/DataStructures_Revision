@@ -1,5 +1,3 @@
-package CSES_Sheet;
-
 import java.util.Arrays;
 import java.util.Scanner;
 
